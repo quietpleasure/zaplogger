@@ -40,9 +40,9 @@ func (hc *Hook) sendLog(en zapcore.Entry, fields []zapcore.Field) error {
 		return err
 	}
 	type log struct {
-		Timestamp string `json:"time"`
-		Message   string `json:"message"`
-		Level     string `json:"level"`
+		Timestamp string `json:"ts"`
+		Message   string `json:"msg"`
+		Level     string `json:"lvl"`
 	}
 	var l log
 	if err := json.NewDecoder(bytes.NewReader(buf.Bytes())).Decode(&l); err != nil {
